@@ -1,0 +1,165 @@
+@{
+    Layout="_LayoutSite";
+}
+
+<div id="js_ng_app_page">
+ 
+
+     <div ui-view></div>
+
+      <script src="~/builds/bundle.js"></script>
+</div>
+
+
+
+ <!--<div class="">
+
+     <div class="panel panel-primary account">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Manage Your Videos</h3>
+                   </div>
+                        <div class="panel-body">
+                               <div class="container" ng-app="videoApp" class="account-container">
+        <div class="row" ng-controller="videoController as vm" >
+            <div class="row">
+              <form ng-submit="vm.save($event)">
+        
+                    <div class="row">
+                    <div class="col-md-10">
+                        <input type="text" ng-model="vm.video.Title" placeholder="Video Title" class="form-control" > 
+                        <br>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="text" ng-model="vm.video.Url"  placeholder="Video url" class="form-control"> 
+                            <br>
+                        </div>
+                    </div> 
+                        <div class="row">
+                        <div class="col-md-10">
+                            <textarea type="text" ng-model="vm.video.Description"  placeholder="write short description for your video" class="form-control"></textarea>
+                            <br>
+                        </div>
+                    </div>        
+                    <div class="row">
+                        <div class="col-md-2">
+                        <button type="submit"  class="btn btn-primary" >save</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+          <br>
+            <div class="row">
+                    <div class="col-md-10">
+
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="video in vm.videos">
+                            <span class="badge">14</span>
+                              <iframe width="130" height="80"
+                                            ng-src="{{video.url | trustAsResourceUrl}}" allowfullscreen>
+                                            </iframe>
+                                            <div>
+                                                {{video.title}}
+                                            </div>
+                        </li>
+                        </ul>
+                  
+                    </div>
+            </div>
+        </div>
+    
+        </div>
+                        </div>
+                 </div>
+    </div>
+ </div>-->
+
+<!--
+
+@section scripts
+{
+     <script type="text/javascript">
+     angular.module('videoApp',[])
+     .controller('videoController',function($scope,$http,$sce,utillity){
+           var vm=this;
+           vm.video={};
+           vm.videos=[];
+
+      
+
+           vm.save=function(e){
+                e.preventDefault();
+
+               if(utillity.validSource(vm.video.Url)===true){
+                   vm.video.Url =utillity.validateUrl(vm.video.Url)
+                     saveVideo(vm.video).then(function(data){
+                        vm.videos.push(data.data);
+                        //vm.url=data.data.url;
+                        console.log(vm.videos)
+                        },function(err){
+                        console.log(err);
+                   });
+               }else{
+                   console.log('source not vaild')
+               }
+                  
+              //  console.log('dffdf',vm.video)
+           }
+
+
+           function saveVideo(data){
+              return $http({
+                   method:'POST',
+                   url:'/api/apivideo',
+                   data:data
+               })
+           }
+
+           function getVideos(){
+               $http.get('/api/apivideo')
+               .then(function(data){
+                     vm.videos=data.data;
+                   //console.log('data', vm.videos);
+               })
+           }
+
+           getVideos();
+          
+     })
+     .filter('trustAsResourceUrl', ['$sce', function($sce) {
+            return function(val) {
+                return $sce.trustAsResourceUrl(val);
+            };
+        }])
+    .service('utillity',function(){
+
+         function contains(str,check){
+             return str.indexOf(check)!==-1;
+         }
+         function validSource(url){
+             var valid=false;
+              if(contains(url,'https://www.youtube.com')===true)
+              {
+                  valid=true;
+              }
+              if(contains(url,'https://player.vimeo.com')===true)
+              {
+                  valid=true;
+              }
+              return valid;
+              //https://vimeo.com/184068444
+
+         }
+         function validateUrl(url){
+             if(contains(url,'watch')===true){
+                 return url.replace('watch?v=','embed/')
+             }else{
+                 return url;
+             }
+         }
+         this.validateUrl=validateUrl;
+         this.validSource=validSource;
+    })
+ </script>
+}-->

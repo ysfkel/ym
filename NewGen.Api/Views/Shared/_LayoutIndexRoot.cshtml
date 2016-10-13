@@ -1,0 +1,67 @@
+
+@{
+    Layout="_LayoutSite";
+}
+   @section header{
+        <div class="col-md-12">
+                        <h4 class="text-uppercase">Blog Listing</h4>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home</a>
+                            </li>
+                            <li class="active"><a href="#">Blog</a>
+                            </li>
+                            <li class="active">Blog Listing</li>
+                        </ol>
+        </div>
+   }
+
+      <section class="body-content magazine-grid p-top-50">
+            <!--breaking news-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="magazine-latest-news">
+                                <div class="container">
+                                    <div class="breaking">
+                                        Breaking News
+                                    </div>
+                                    <div class="news-slider">
+                                        
+                                    <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1000%; transition-duration: 0.6s; transform: translate3d(-2580px, 0px, 0px);"><li class="clone" aria-hidden="true" style="width: 860px; float: left; display: block;">
+                                                <a href="#">Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</a>
+                                            </li>
+                                            <li class="" style="width: 860px; float: left; display: block;">
+                                                <a href="#">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis</a>
+                                            </li>
+                                            <li class="" style="width: 860px; float: left; display: block;">
+                                                <a href="#">Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes</a>
+                                            </li>
+                                            <li class="flex-active-slide" style="width: 860px; float: left; display: block;">
+                                                <a href="#">Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</a>
+                                            </li>
+                                        <li class="clone" aria-hidden="true" style="width: 860px; float: left; display: block;">
+                                                <a href="#">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis</a>
+                                            </li></ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="">2</a></li><li><a class="flex-active">3</a></li></ol><ul class="flex-direction-nav"><li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li><li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li></ul></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--breaking news-->
+             
+             <div class="page-content-sm">
+                <div class="container">
+                    <div class="row">
+                            <div class="col-md-9">
+                        
+                         @RenderBody()
+                        </div>
+                      <div class="col-md-3">
+                            @RenderSection("right",required:false)
+                      </div>
+   
+                    </div>
+                </div>
+            </div>
+
+        </section>

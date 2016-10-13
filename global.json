@@ -1,0 +1,6 @@
+{
+    "projects": [
+        "NewGen.DomainModel",
+        "NewGen.Infrastructure"
+    ]
+}

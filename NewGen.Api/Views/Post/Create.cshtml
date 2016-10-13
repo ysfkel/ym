@@ -1,0 +1,158 @@
+@model Post
+
+
+@{
+    Layout="_LayoutSite";
+}
+ 
+<style>
+    .panel-default>.panel-heading 
+    {
+        background-color:none !important;
+    }
+</style>
+<style>
+    .page-content-account{
+            display: inline-block;
+    width: 100%;
+    padding: 30px 0 40px 100px;
+    }
+</style>
+
+   <!--@section header{
+        <div class="col-md-12">
+                        <h4 class="text-uppercase">New Blog Post</h4>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home</a>
+                            </li>
+                            <li class="active"><a href="#">Blog</a>
+                            </li>
+                            <li class="active">Blog Listing</li>
+                        </ol>
+        </div>
+   }-->
+        <section class="body-content ">
+
+            <div class="page-content-account">
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div ng-app="summernoteDemo">
+                    <div ng-controller="OptCtrl">
+                        <form asp-controller="Post" asp-action="Index" method="post">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <input type="text" name="Title" ng-model="model.Title" asp-for="Title" class="form-control" placeholder="Title">
+                                    <br/>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <textarea name="Text" id="" cols="30" config="options" rows="10" summernote name="Text" ng-model="model.Text" asp-for="Text"></textarea>
+                                        <!--<summernote ng-model="text"></summernote>-->
+                                    </div>
+                                </div>
+                           
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <button type="button" ng-click="save()" class="btn btn-primary">Publish This Blog</button>
+                                    </div>
+            </div>
+        </div>
+        
+     </form>
+     
+   </div>
+</div>
+
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+  
+
+
+       <!--<form asp-controller="Post" asp-action="Index" method="post">
+        <input type="text" asp-for="Title">
+        <br>
+        <textarea asp-for="Text" name="" id="" cols="30" rows="10"></textarea>
+      <br>
+        <button type="submit">Post</button>
+    </form>-->
+<!--<div id="summernote">Hello Summernote</div>-->
+@section scripts
+{
+   <script type="text/javascript">
+    
+    angular.module('summernoteDemo', ['summernote'])
+    .controller('OptCtrl', function($scope,$http) {
+       $scope.model={};
+       $scope.save=function(){
+   
+              var req = {
+            method: 'POST',
+            url: '/api/apipost',
+            data: $scope.model
+            }
+ 
+            $http(req).then(function(data){
+                console.log(data);
+            },function(err){
+                console.log('err',err);
+            })
+       }
+        $scope.enter = function() { console.log('Enter/Return key pressed'); }
+        $scope.options = {
+        height: 250,
+          toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['style']],
+        ['font', ['bold', 'italic', 'underline'/*, 'clear'*/]],
+        // ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+        ['fontname', [/* 'fontname'*/]],
+        ['fontsize', ['fontsize']],
+        ['color', ['color']],
+        ['para', [/*'ul', 'ol', 'paragraph'*/]],
+        ['height', [/*'height' */]],
+        ['table', [/*'table'*/]],
+        ['insert', ['link', 'picture', 'hr']],
+        ['view', [/*'fullscreen', 'codeview' */]],   // remove codeview button 
+        ['help', [/*'help'*/]]
+  ]
+        // toolbar: [
+        //   ['style', ['bold', 'italic', 'underline', 'clear']],
+        //   ['fontsize', ['fontsize']],
+        //   ['color', ['color']],
+        //   ['para', ['ul', 'ol', 'paragraph']],
+        //   ['height', ['height']]
+        // ]
+      };
+    })
+
+//     $(document).ready(function() {
+//     $('#summernote').summernote({
+//             height: 300,
+//             lineHeight:2,
+//               enterHtml: '<br>',
+//         callbacks: {
+//     onKeyup: function(e) {
+//        // $("#summernote").code()
+//       console.log($("#summernote").summernote('code'));
+//     },
+//      onEnter: function() {
+
+//       var myText = $('#summernote').summernote('isEmpty')? '' : $('#summernote').summernote('code');
+//             console.log('Enter/Return key pressed',myText);
+//     }
+//   }
+//     });
+//     });
+
+</script>
+}

@@ -1,0 +1,48 @@
+.tweeter-container
+{
+     /* background: #e8e8e8; */
+    /* padding: 102px; */
+    position: static;
+    display: inline-block;
+    /* padding: 3px; */
+    border: 1px solid #e8e8e8;
+    margin: 27px 0;
+}
+
+
+div.panel.account{
+        /* margin-bottom: 20px; */
+  
+    border-radius: 0;
+    /* background-color: #fff; */
+    /* box-shadow: none; */
+        margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+
+        /*border-color: #ddd;*/
+}
+
+
+.page-background{
+    background:#FAFAFA;
+    width:100%;
+    height:100%;
+}
+
+
+.panel-container{
+    margin-top:170px;
+}
+
+.video-list-item{
+    width:100%;
+    height:300px;
+}
+
+.account-container{
+    padding:80px 0;
+}

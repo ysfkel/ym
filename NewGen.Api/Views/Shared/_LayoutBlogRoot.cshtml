@@ -1,0 +1,31 @@
+
+@{
+    Layout="_LayoutSite";
+}
+   @section header{
+        <div class="col-md-12">
+                        <h4 class="text-uppercase">Blog Listing</h4>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home</a>
+                            </li>
+                            <li class="active"><a href="#">Blog</a>
+                            </li>
+                            <li class="active">Blog Listing</li>
+                        </ol>
+        </div>
+   }
+          <div class="page-content">
+                <div class="container">
+                    <div class="row">
+                       <div class="col-md-8">
+                               @RenderBody()
+                       </div>
+                       <div class="col-md-4">
+                             @RenderSection("right",required:false)
+                       </div>
+                    </div>
+                </div>
+          </div>
+
+
+        

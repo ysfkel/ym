@@ -1,0 +1,21 @@
+{
+  "name": "NewGen.Api",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./wwwroot/libs/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "summernote": "^0.8.2",
+    "angular-summernote": "^0.8.1",
+    "angular": "^1.5.8"
+  }
+}
